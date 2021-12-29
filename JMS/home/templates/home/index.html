@@ -1,2 +1,559 @@
 {% extends 'home/base.html' %}
 {% load static %}
+{% load kurs %}
+
+{% block slider %}
+<section class="slider slider-layout2">
+  <div class="slick-carousel carousel-arrows-light m-slides-0"
+    data-slick='{"slidesToShow": 1, "arrows": true, "dots": true, "speed": 700,"fade": true,"cssEase": "linear"}'>
+    {% for item in carousel %}
+    <div class="slide-item align-v-h bg-overlay">
+      <div class="bg-img"><img src="{{ item.background.url }}" alt="slide img"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="slide__content text-center">
+              <h2 class="slide__title">{{ item.title }}</h2>
+              <p class="slide__desc mx-auto">{{ item.desc}}</p>
+              <a href="#services" class="btn btn__white btn__icon btn__lg mr-30">
+                <span>Our Services</span><i class="icon-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock slider %}
+
+{% block about %}
+<section id="tentang_kami" class="about-layout2">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="text-block">
+        <div class="layout mb-30">
+          <h2 class="section_title">Tentang Kami</h2>
+          <p class="section_desc mb-30 mt-40">Berdiri sejak Tahun 2008, PT. JASA MODA SOLUSI adalah perusahaan yang bergerak pada bidang Jasa baik konsultan Jasa Konstruksi dan Jasa Logistics</p>
+          <p class="section_desc">PT. JASA MODA SOLUSI mempunyai tujuan Memasyarakat Jasa yang bersifat natural dan alami sesuai kebutuhan yang manusiawi dengan moto kami “Your Satisfaction is Our Passion” (Kepuasaan anda adalah rasa kami)</p>
+        </div>
+        <ul class="list-items list-unstyled mb-40">
+          <li>Memberikan Layanan Optimal</li>
+          <li>Manajemen yang Sistematis</li>
+          <li>Kualitas Unggul</li>
+          <li>Respon yang Baik dan Benar</li>
+          <li>Fokus Pada Kerjasama</li>
+          <li>Memberikan Kepuasan Terjamin</li>
+        </ul>
+        {% comment %} <a href="projects-grid.html" class="btn btn__secondary btn__icon">
+          <span>Latest Projects</span><i class="icon-arrow-right"></i>
+        </a> {% endcomment %}
+      </div>
+      <div class="imgs-block mt-50">
+        <div class="about__img">
+          <img src="{% static 'assets/images/about/foto3.jpg' %}" alt="about" class="img-fluid w-100">
+        </div>
+        {% comment %} <div class="video__box">
+          <a class="video__btn video__btn-white popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
+            <div class="video__player">
+              <span class="video__player-animation"></span>
+              <span class="video__player-animation video__player-animation-2"></span>
+              <i class="fa fa-play"></i>
+            </div>
+          </a>
+        </div><!-- /.video__box --> {% endcomment %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock about %}
+
+{% block services %}
+<section id="services" class="services-container bg-gray">
+  <div class="container col-padding-0">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+        <div class="heading text-center mb-50">
+          <h2 class="section_title">Our Services</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row services-wrapper">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="service-item">
+          <div class="service__img">
+            <img class="services_picture_single" src="{% static 'assets/images/services/829ab309-88ea-4ef1-8f17-fd514e33854b.jpg' %}" alt="Lofistic Service">
+          </div>
+          <div class="service__content">
+            <h4 class="service__title">Logistic Service</h4>
+            {% comment %} <p class="service__desc">Architecture is both the process and the product of planning, and
+              constructing buildings or any other structures.</p> {% endcomment %}
+            <ul class="list-items list-items-layout2 list-unstyled mb-30">
+              <li>Project Cargo</li>
+              <li>Inland Transportation</li>
+              <li>Trucking Delivery and Distribution</li>
+              <li>Warehousing</li>
+            </ul>
+            {% comment %} <a href="services-single-service.html" class="btn btn__secondary"><span>Read More</span><i
+                class="icon-arrow-right"></i></a> {% endcomment %}
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="service-item">
+          <div class="service__img">
+            <img class="services_picture_single" src="{% static 'assets/images/services/air-freight-0101.jpg' %}" alt="Air Freight">
+          </div>
+          <div class="service__content">
+            <h4 class="service__title">Air Freight</h4>
+            {% comment %} <p class="service__desc">Architecture is both the process and the product of planning, and
+              constructing buildings or any other structures.</p> {% endcomment %}
+            <ul class="list-items list-items-layout2 list-unstyled mb-30">
+              <li>Door to Door Service</li>
+              <li>Courier Shipment</li>
+              <li>Domestic Cargo</li>
+              <li>Consolidation</li>
+              <li>Charter Service</li>
+              <li>Perishables</li>
+              <li>Customer Clearence Export and Import</li>
+            </ul>
+            {% comment %} <a href="services-single-service.html" class="btn btn__secondary"><span>Read More</span><i
+                class="icon-arrow-right"></i></a> {% endcomment %}
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="service-item">
+          <div class="service__img">
+            <img class="services_picture_single" src="{% static 'assets/images/services/00179144-e373-44f2-8b0c-84045f539ee0.jpg' %}" alt="Custom Clearence Brokerage">
+          </div>
+          <div class="service__content">
+            <h4 class="service__title">Custom Clearence Brokerage</h4>
+            {% comment %} <p class="service__desc">Given the increasing complexity of many construction projects it is becoming
+              more common that a consultant.</p> {% endcomment %}
+            <ul class="list-items list-items-layout2 list-unstyled mb-30">
+              <li>Temporary Export and Import Procedures</li>
+              <li>Rush Handling</li>
+              <li>Boanded Area</li>
+              <li>Master List Project</li>
+              <li>Re-Export Procedures</li>
+              <li>Re-Import Procedures</li>
+              <li>PPJK EDI</li>
+              <li>PIB</li>
+              <li>BC 1.2 (Angkut Lanjut)</li>
+            </ul>
+            {% comment %} <a href="services-single-service.html" class="btn btn__secondary"><span>Read More</span><i
+                class="icon-arrow-right"></i></a> {% endcomment %}
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="service-item">
+          <div class="service__img">
+            <img class="services_picture_single" src="{% static 'assets/images/services/c2a1a5b1-d0d5-4870-ba36-dd2865328260.jpg' %}" alt="Sea Freight">
+          </div>
+          <div class="service__content">
+            <h4 class="service__title">Sea Freight</h4>
+            {% comment %} <p class="service__desc">Professional service uses specialized, project management techniques to oversee
+              the planning, design.</p> {% endcomment %}
+            <ul class="list-items list-items-layout2 list-unstyled mb-30">
+              <li>Custom Clearence Export Import</li>
+              <li>FCL and LCL Consolidation</li>
+              <li>Door to Door Service</li>
+              <li>Break Bulk</li>
+              <li>Inter Insuler</li>
+              <li>General Cargo</li>
+            </ul>
+            {% comment %} <a href="services-single-service.html" class="btn btn__secondary"><span>Read More</span><i
+                class="icon-arrow-right"></i></a> {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock services %}
+
+{% block portfolio %}
+<section class="portfolio-grid pb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+        <div class="heading text-center mb-50">
+          <h2 class="section_title">Our Recent Works</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- portfolio item #1 -->
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div class="portfolio-item">
+          <div class="portfolio__img">
+            <img src="{% static 'assets/images/portfolio/grid/1.jpg' %}" alt="portfolio img">
+          </div>
+          <div class="portfolio__content">
+            <h4 class="portfolio__title"><a href="#">The Fallingwater House</a></h4>
+            <div class="portfolio__cat">
+              <a href="#">Building</a><a href="#">Interior</a>
+            </div><!-- /.portfolio-cat -->
+          </div>
+        </div>
+      </div>
+      <!-- portfolio item #2 -->
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div class="portfolio-item">
+          <div class="portfolio__img">
+            <img src="{% static 'assets/images/portfolio/grid/2.jpg' %}" alt="portfolio img">
+          </div>
+          <div class="portfolio__content">
+            <h4 class="portfolio__title"><a href="#">The Guggenheim Museum</a></h4>
+            <div class="portfolio__cat">
+              <a href="#">Construction</a><a href="#">Engineering</a>
+            </div><!-- /.portfolio-cat -->
+          </div>
+        </div>
+      </div>
+      <!-- portfolio item #3 -->
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div class="portfolio-item">
+          <div class="portfolio__img">
+            <img src="{% static 'assets/images/portfolio/grid/3.jpg' %}" alt="portfolio img">
+          </div>
+          <div class="portfolio__content">
+            <h4 class="portfolio__title"><a href="#">Neue National Galerie</a></h4>
+            <div class="portfolio__cat">
+              <a href="#">Renovation</a><a href="#">Architecture</a>
+            </div><!-- /.portfolio-cat -->
+          </div>
+        </div>
+      </div>
+      <!-- portfolio item #4 -->
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div class="portfolio-item">
+          <div class="portfolio__img">
+            <img src="{% static 'assets/images/portfolio/grid/4.jpg' %}" alt="portfolio img">
+          </div>
+          <div class="portfolio__content">
+            <h4 class="portfolio__title"><a href="#">Sagrada Familia</a></h4>
+            <div class="portfolio__cat">
+              <a href="#">Construstion</a><a href="#">Cuilding</a>
+            </div><!-- /.portfolio-cat -->
+          </div>
+        </div>
+      </div>
+      <!-- portfolio item #5 -->
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div class="portfolio-item">
+          <div class="portfolio__img">
+            <img src="{% static 'assets/images/portfolio/grid/5.jpg' %}" alt="portfolio img">
+          </div>
+          <div class="portfolio__content">
+            <h4 class="portfolio__title"><a href="#">Heydar Aliyev Center</a></h4>
+            <div class="portfolio__cat">
+              <a href="#">Engineering</a><a href="#">Renovation</a>
+            </div><!-- /.portfolio-cat -->
+          </div>
+        </div>
+      </div>
+      <!-- portfolio item #6 -->
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div class="portfolio-item">
+          <div class="portfolio__img">
+            <img src="{% static 'assets/images/portfolio/grid/6.jpg' %}" alt="portfolio img">
+          </div>
+          <div class="portfolio__content">
+            <h4 class="portfolio__title"><a href="#">Cathedral of Brasilia</a></h4>
+            <div class="portfolio__cat">
+              <a href="#">Building</a><a href="#">Modern</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock portfolio %}
+
+{% block contact %}
+<section class="contact-layout3 p-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="contact-panel">
+          <form method="post" action="assets/php/contact.php" id="contactForm" class="contact__panel-form">
+            <div class="row mb-40">
+              <div class="col-sm-12 col-lg-5 col-lg-7">
+                <h4 class="contact__panel-title">Request A Quote</h4>
+                <p class="contact__panel-desc">Complete control over products allows us to ensure our
+                  customers receive the best quality prices and service. We take great pride in everything that we
+                  do in our factory.</p>
+              </div><!-- /.col-lg-8 -->
+              <div class="col-sm-12 col-md-5 col-lg-5">
+                <div class="contact__panel-info">
+                  <strong class="contact__panel-info-title">We will get back to you within 24 hours, or call us
+                    everyday, 09:00 AM - 12:00 PM</strong>
+                  <div class="contact__number d-flex align-items-center">
+                    <i class="icon-phone"></i>
+                    <a href="tel:5565454117">55 654 541 17</a>
+                  </div>
+                </div><!-- /.contact__panel-info-bottom -->
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Name" id="contact-name" name="contact-name"
+                    required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Phone" id="contact-Phone"
+                    name="contact-phone" required>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Email" id="contact-email"
+                    name="contact-email" required>
+                </div>
+                <div class="form-group">
+                  <select class="form-control">
+                    <option>select your industry</option>
+                    <option>Petroleum & Gas Energy</option>
+                    <option>Construction & Engineering</option>
+                    <option>Mechanical Engineering</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <textarea class="form-control" placeholder="Additional Details!" id="contact-messgae"
+                    name="contact-messgae" required></textarea>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-12 d-flex d-flex align-items-center">
+                <button type="submit" class="btn btn__secondary mr-40">
+                  <span class="mx-2">Submit Request</span><i class="icon-arrow-right mx-2"></i>
+                </button>
+                <div class="form-group input-radio my-3">
+                  <label class="label-radio">I accept the privacy and terms.
+                    <input type="checkbox" checked>
+                    <span class="radio-indicator"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div><!-- /.contact-panel -->
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock contact %}
+
+{% block data_home %}
+<section class="banner-layout3 bg-overlay bg-parallax">
+  <div class="bg-img"><img src="{% static 'assets/images/data_number/background.jpg' %}" alt="background"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <div class="layout heading-light mb-50">
+          <h2 class="section_title">Membangun Hubungan Dengan Klien Di Seluruh Dunia!</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row counter-light">
+      <div class="col-6 col-sm-3">
+        <div class="counter-item">
+          <h4 class="counter">{{ data_home.project }}</h4>
+          <p class="counter__desc">Project Yang Sudah Terlaksana</p>
+        </div>
+      </div>
+      <div class="col-6 col-sm-3">
+        <div class="counter-item">
+          <h4 class="counter">{{ data_home.employee }}</h4>
+          <p class="counter__desc">Karyawan Yang Terkualifikasi Dengan Kami</p>
+        </div>
+      </div>
+      <div class="col-6 col-sm-3">
+        <div class="counter-item">
+          <h4 class="counter">{{ data_home.client }}</h4>
+          <p class="counter__desc">Clients Yang Sudah Terpuaskan</p>
+        </div>
+      </div>
+      <div class="col-6 col-sm-3">
+        <div class="counter-item">
+          <h4 class="counter">{{ data_home.experience }}</h4>
+          <p class="counter__desc">Tahun Pengalaman Kami Di Bidang Logistik</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock data_home %}
+
+{% block article %}
+<section class="article-grid pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+        <div class="heading text-center mb-50">
+          <h2 class="section_title">Artikel Terkini</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% for article in articles %}
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="article-item">
+          <div class="article__img">
+            <a href="article/{{ article.published | date:'Y/m/d' }}/{{ article.slug }}">
+              <img src="{{ article.thumbnail.url }}" alt="{{ article.title }} thumbnail">
+            </a>
+          </div>
+          <div class="article__content">
+            <h4 class="article__title"><a href="article/{{ article.published | date:'Y/m/d' }}/{{ article.slug }}">{{ article.title }}</a></h4>
+            <span class="article__meta-date">{{ article.published | date:'M d, Y' }}</span>
+            <p class="article__desc">{{ article.content | striptags | truncatechars:200 }}</p>
+            <a href="article/{{ article.published | date:'Y/m/d' }}/{{ article.slug }}" class="btn btn__secondary btn__link">
+              <span>Selengkapnya</span>
+              <i class="icon-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock article %}
+
+{% block why %}
+<section class="banner-layout1 p-0">
+  <div class="container-fluid col-padding-0 bg-theme">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="inner-padding">
+          <div class="layout heading-light mb-40">
+            <h2 class="section_title">Mengapa Harus Memilih JMS</h2>
+            <p class="section_desc">Building bigger, better, faster & stronger products than ever before. We can
+              help you build on your past and prepare for future.</p>
+          </div>
+          <div class="row fancybox-light">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="fancybox-item">
+                <div class="fancybox__icon rotate_icon">
+                  <i class="fa fa-cog fa-spin"></i>
+                </div>
+                <div class="fancybox__content">
+                  <h4 class="fancybox__title">Manajemen Mantap</h4>
+                  <p class="fancybox__desc">Kami akan memberikan layanan optimal, membuat bentuk kerjasama yang professional
+                    sesuai dengan ketentuan yang telah disepakati dan memberikan solusi terbaik menerapkan manajemen yang
+                    sistematis. </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="fancybox-item">
+                <div class="fancybox__icon">
+                  <i class="fa fa-star"></i>
+                </div>
+                <div class="fancybox__content">
+                  <h4 class="fancybox__title">Unggul Usaha</h4>
+                  <p class="fancybox__desc">Kami akan memberikan layanan jasa dengan kualitas unggul, memberikan nilai tambah
+                    terhadap semua yang terlibat untuk jangka Panjang dan kami selalu berbuat lebih banyak dengan tidak pernah
+                    meninggalkan perbaikan dan inovasi dalam berusaha</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="fancybox-item">
+                <div class="fancybox__icon">
+                  <i class="fa fa-handshake-o"></i>
+                </div>
+                <div class="fancybox__content">
+                  <h4 class="fancybox__title">Dapat Di Pertanggungjawabkan</h4>
+                  <p class="fancybox__desc">Kami akan memberikan respon yang baik dan benar untuk tetap Bersama dalam mencapai
+                    tujuan, fokus pada kerjasama dan menuju sebuah resolusi bukan sekedar kompromi yang terarah sesuai dengan
+                    pijakan dan prinsip dasar kami.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="fancybox-item">
+                <div class="fancybox__icon">
+                  <i class="fa fa-thumbs-o-up"></i>
+                </div>
+                <div class="fancybox__content">
+                  <h4 class="fancybox__title">Arahan Amanah</h4>
+                  <p class="fancybox__desc">Pelayanan Prima merupakan prioritas bagi kami, sehingga dapat memberikan kepuasan dan
+                    kepercayaan akan eksistensi kami sesuai tugas yang kami emban dengan selalu berbicara
+                    tentang hal yang benar dan memberikan solusi yang benar sesuai dengan arahan, kaidah dan
+                    ketentuan yang berlaku</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="https://wa.me/628111688882" target="_blank" class="btn btn__white btn__bordered btn__icon box-shadow-none">
+            <span>Kontak Kami</span><i class="icon-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock why %}
+
+{% block kurs %}
+<section class="kurs">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+        <div class="heading text-center mb-50">
+          <h2 class="section_title">Kurs - Exchange Rate</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th scope="col" class="kurs_header">Mata Uang</th>
+            <th scope="col" class="kurs_header">Kurs Indonesia</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in home_kurs %}
+          <tr>
+            <td>{{i|exrate_display:'country'}}</td>
+            <td>{{i|exrate_display:'rate'}}</td>
+          </tr>
+          {% endfor %}
+          <tr>
+            <td colspan="2"><a class="kurs_link" href="{% url 'home:kurs' %}">Selengkapnya...</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock kurs %}
+
+{% block clients %}
+<section class="clients border-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="slick-carousel"
+          data-slick='{"slidesToShow": 6, "arrows": false, "dots": false, "autoplay": true,"autoplaySpeed": 2000, "infinite": true, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 4}}, {"breakpoint": 767, "settings": {"slidesToShow": 3}}, {"breakpoint": 480, "settings": {"slidesToShow": 2}}]}'>
+          {% for client in clients %}
+          <div class="client">
+            <img src="{{client.logo.url}}" alt="{{client.name}}">
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock clients %}

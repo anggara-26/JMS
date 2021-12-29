@@ -3,7 +3,7 @@
 <header class="header header-light header-layout2">
   <nav class="navbar navbar-expand-lg sticky-navbar fixed-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="{% url 'home:index' %}">
         <img src="{% static 'assets/images/logo/logo-JMS.png' %}" width="97px" height="49px" alt="logo">
         {% comment %} <img src="{% static 'assets/images/logo/logo-teks-JMS.png' %}" class="ml-1" height="20px" alt="logo"> {% endcomment %}
       </a>
@@ -13,19 +13,19 @@
       <div class="collapse navbar-collapse" id="mainNavigation">
         <ul class="navbar-nav ml-auto">
           <li class="nav__item with-dropdown">
-            <a href="#" class="nav__item-link active">Home</a>
+            <a href="{% url 'home:index' %}" class="nav__item-link {% if request.path == '/' %}active{% endif %}">Home</a>
           </li>
           <li class="nav__item with-dropdown">
-            <a href="#tentang_kami" class="nav__item-link">Tentang Kami</a>
+            <a href="{% url 'home:index' %}#tentang_kami" class="nav__item-link">Tentang Kami</a>
           </li>
           <li class="nav__item with-dropdown">
-            <a href="#services" class="nav__item-link">Our Services</a>
+            <a href="{% url 'home:index' %}#services" class="nav__item-link">Our Services</a>
           </li>
           <li class="nav__item with-dropdown">
-            <a href="#" class="nav__item-link">Blog</a>
+            <a href="{% url 'article:index' %}" class="nav__item-link {% if 'article' in request.path %}active{% endif %}">Artikel</a>
           </li>
           <li class="nav__item">
-            <a href="#" class="nav__item-link">Contacts</a>
+            <a href="https://wa.me/628111688882" target="_blank" class="nav__item-link">Kontak</a>
           </li>
           {% comment %} <li class="nav__item with-dropdown">
             <a href="about-us.html" class="dropdown-toggle nav__item-link">Company</a>

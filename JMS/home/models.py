@@ -1,4 +1,5 @@
 from django.db import models
+from solo.models import SingletonModel
 
 # Create your models here.
 
@@ -10,10 +11,22 @@ class Carousel(models.Model):
   def __str__(self):
     return f'{self.title}'
 
+class Data_Angka(SingletonModel):
+
+  project = models.IntegerField(verbose_name='Jumlah Projek yang Terlaksana', default='0')
+  employee = models.IntegerField(verbose_name='Jumlah Karyawan', default='0')
+  client = models.IntegerField(verbose_name='Jumlah Client', default='0')
+  experience = models.IntegerField(verbose_name='Tahun Pengalaman', help_text='sudah berapa tahun pengalaman di bidang ini', default='0')
+
+  class Meta:
+    verbose_name = 'Data Untuk Home'
+
+  def __str__(self):
+    return 'Data'
+
 class Client(models.Model):
   name = models.CharField(verbose_name='Nama Perusahaan Client', default='', blank=True, max_length=255)
   logo = models.ImageField(verbose_name='Logo Client', upload_to='static/assets/images/clients/%Y/%m/%d', default='')
-  web = models.URLField(verbose_name='Website Client', help_text='masukkan url website client, beri # jika tidak ada)', max_length=500, default='#', blank=True)
 
   def __str__(self):
     return f'{self.name}'

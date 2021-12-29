@@ -1,0 +1,39 @@
+{% extends 'article/single_article/base.html' %}
+{% load static %}
+
+{% block article %}
+<div class="article-item">
+  <div class="article_single__img">
+    <img src="{{ article.thumbnail.url }}" alt="{{ article.title }} thumbnail">
+  </div>
+  <div class="article__content">
+    <h4 class="article__title">{{ article.title }}</h4>
+    <span class="article__meta-date">{{ article.published | date:'M d, Y' }}</span>
+    <p class="article__desc">{{ article.content | safe }}</p>
+  </div>
+</div>
+{% endblock article %}
+
+{% block side %}
+<div class="row article_single_side">
+  <div class="col-12 footer__widget footer__widget-newsletter">
+    <h6 class="footer__widget-title">Newsletter</h6>
+    <div class="footer__widget-content">
+      <p>Sign up untuk mendapatkan informasi mengenai artikel terbaru dari kami.</p>
+      <form class="widget__newsletter-form">
+        <div class="form-group mb-0">
+          <input type="text" class="form-control" placeholder="Alamat Email Anda">
+          <button type="submit" class="btn btn__primary">
+            <i class="icon-arrow-right"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-12">
+    <center>
+      <div class="addthis_inline_share_toolbox"></div>
+    </center>
+  </div>
+</div>
+{% endblock side %}

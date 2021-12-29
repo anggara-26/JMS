@@ -1,0 +1,25 @@
+{% extends 'article/base.html' %}
+{% load static %}
+
+{% block articles %}
+{% for article in articles %}
+<div class="col-sm-12 col-md-6 col-lg-4">
+  <div class="article-item">
+    <div class="article__img">
+      <a href="{{ article.published | date:'Y/m/d' }}/{{ article.slug }}">
+        <img src="{{ article.thumbnail.url }}" alt="{{ article.title }} thumbnail">
+      </a>
+    </div>
+    <div class="article__content">
+      <h4 class="article__title"><a href="{{ article.published | date:'Y/m/d' }}/{{ article.slug }}">{{ article.title }}</a></h4>
+      <span class="article__meta-date">{{ article.published | date:'M d, Y' }}</span>
+      <p class="article__desc">{{ article.content | striptags | truncatechars:200 }}</p>
+      <a href="{{ article.published | date:'Y/m/d' }}/{{ article.slug }}" class="btn btn__secondary btn__link">
+        <span>Selengkapnya</span>
+        <i class="icon-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock articles %}

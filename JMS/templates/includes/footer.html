@@ -1,0 +1,58 @@
+{% load static %}
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-4 col-xl-4 footer__widget footer__widget-about">
+          <div class="footer__widget-content">
+            <img src="{% static 'assets/images/logo/logo-JMS.png' %}" width="97px" height="49px" alt="logo" class="mb-30">
+            <p class="mb-20">PT. JASA MODA SOLUSI adalah perusahaan yang bergerak pada bidang Jasa baik konsultan Jasa Konstruksi dan Jasa Logistics</p>
+            <ul class="social__icons list-unstyled">
+              {% for item in social_media %}
+              <li><a href="{{ item.link }}" target="_blank">{{item.logo | safe}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 footer__widget footer__widget-nav">
+          <h6 class="footer__widget-title">Services</h6>
+          <div class="footer__widget-content">
+            <nav>
+              <ul class="list-unstyled">
+                <li><a href="#">Construction Manage</a></li>
+                <li><a href="#">Construction Consultants</a></li>
+                <li><a href="#">Architecture & Building</a></li>
+                <li><a href="#">Home Renovations</a></li>
+                <li><a href="#">Tiling & Painiting</a></li>
+                <li><a href="#">Interior Design</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-12 col-lg-6 col-xl-6 footer__widget footer__widget-newsletter">
+          <h6 class="footer__widget-title">Newsletter</h6>
+          <div class="footer__widget-content">
+            <p>Sign up untuk mendapatkan informasi mengenai artikel terbaru dari kami.</p>
+            <form class="widget__newsletter-form">
+              <div class="form-group mb-0">
+                <input type="text" class="form-control" placeholder="Alamat Email Anda">
+                <button type="submit" class="btn btn__primary">
+                  <i class="icon-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-sm-12 col-md-12 col-lg-12 d-flex flex-wrap justify-content-center">
+          <p class="mb-0 color-white"> &copy; 2021 PT Jasa Moda Solusi</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

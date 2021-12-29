@@ -1,12 +1,5 @@
-/*--------------------------
-    Project Name: Promina
-    Version: 1.0
-    Author: 7oorof
-    Devloped by: Ahmed Abdallah (a.abdallah999@gmail.com)
-    Relase Date: June 2020
----------------------------*/
 /*---------------------------
-      Table of Contents
+    Table of Contents
     --------------------
     01- Pre Loading
     02- Mobile Menu
@@ -22,8 +15,8 @@
     12- CounterUp
     13- NiceSelect Plugin
     14- portfolio Filtering and Sorting
-     
- ----------------------------*/
+    
+----------------------------*/
 
 $(function () {
 
@@ -47,6 +40,19 @@ $(function () {
     })
 
     /*==========   Sticky Navbar   ==========*/
+    if ($win.width() >= 992) {
+        var $navbar = $('.sticky-navbar');
+        var $block80 = $('.block-80');
+        if ($win.scrollTop() > 200) {
+            $navbar.addClass('fixed-navbar');
+            $block80.addClass('d-block');
+            $block80.removeClass('d-none');
+        } else {
+            $navbar.removeClass('fixed-navbar');
+            $block80.addClass('d-none');
+            $block80.removeClass('d-block');
+        }
+    }
     $win.on('scroll', function () {
         if ($win.width() >= 992) {
             var $navbar = $('.sticky-navbar');
@@ -165,7 +171,6 @@ $(function () {
         $('#filter-carousel').slick('slickGoTo', 0);
     });
 
-
     /*==========  Popup Video  ==========*/
     $('.popup-video').magnificPopup({
         mainClass: 'mfp-fade',
@@ -205,7 +210,7 @@ $(function () {
     /*==========   counterUp  ==========*/
     $(".counter").counterUp({
         delay: 10,
-        time: 4000
+        time: 2000
     });
 
     /*==========  NiceSelect Plugin  ==========*/
